@@ -11,13 +11,17 @@ Example:
         solution("tiger cheetah lion") -> ('t', 2)
 """
 def solution(s: str) -> tuple[str, int]:
-    words = set(s.split())
-    max_letter = None
+    unique_words = set(s.split())
+    processed_letters = set()
+    max_letter = s[0]
     max_count = 0
 
-    # Check only unique letters (ignore spaces)
-    for letter in set(s.replace(" ", "")):
-        count = sum(1 for word in words if letter in word)
+    for letter in s.strip():
+        if letter in processed_letters:
+            continue
+        processed_letters.add(letter)
+
+        count = sum(1 for word in unique_words if letter in word)
         if count > max_count:
             max_count = count
             max_letter = letter
@@ -26,12 +30,9 @@ def solution(s: str) -> tuple[str, int]:
 
 
 if __name__ == "__main__":
-    # Example runs
-    print(solution("tiger cheetah lion"))
-    # Expected: ('t', 2) → 't' appears in "tiger" and "cheetah"
+    print(solution("tiger cheetah lion"))           # ('t', 2)
+    print(solution("elephant eagle emu"))           # ('e', 3)
+    print(solution("zebra antelope gorilla"))       # ('a', 3)
+    print(solution("apple apricot banana avocado")) # ('a', 4)
 
-    print(solution("elephant eagle emu"))
-    # Expected: ('e', 3) → 'e' appears in all three words
 
-    print(solution("zebra antelope gorilla"))
-    # Expected: ('a', 3) → 'a' appears in all three words
