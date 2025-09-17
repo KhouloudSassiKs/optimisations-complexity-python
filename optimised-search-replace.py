@@ -1,8 +1,8 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+def optimizedReplace(A, B):
+"""
 For each element in B, replaces it with the element from A that corresponds 
 to the closest neighbor in B. The original order of B is preserved in the output.
 """
-def optimizedReplace(A, B):
     # Map each value in B to its original index
     dictB = {B[i]: i for i in range(len(B))}
     
