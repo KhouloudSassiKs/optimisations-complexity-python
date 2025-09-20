@@ -14,13 +14,13 @@ def solution(S, Q):
                    length after processing the corresponding query.
 
     Examples:
-        >>> solution("aabbbaaaccab", [("a", "b"), ("c", "a")])
+        solution("aabbbaaaccab", [("a", "b"), ("c", "a")])
         [2, 3]
 
-        >>> solution("xyzxyz", [("x", "y"), ("z", "x")])
+        solution("xyzxyz", [("x", "y"), ("z", "x")])
         [2, 2]
 
-        >>> solution("aaaa", [("a", "b")])
+        solution("aaaa", [("a", "b")])
         [0]
     """
     output = []
